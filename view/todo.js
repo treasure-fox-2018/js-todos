@@ -62,8 +62,6 @@ switch (command[0]) {
         break;
     
     case 'list:create':
-    // console.log(command[1]);
-    
         if(command[1]==undefined){
             command [1] = 'asc'
         }
