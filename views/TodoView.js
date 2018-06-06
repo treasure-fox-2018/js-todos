@@ -6,14 +6,14 @@ class TodoView {
     $ node todo.js list
     $ node todo.js list:created asc|desc
     $ node todo.js list:completed asc|desc
-    $ node todo.js filter:<tag_name>
     $ node todo.js add
     $ node todo.js add <task_content>
     $ node todo.js delete <task_id>
     $ node todo.js findById <task_id>
     $ node todo.js complete <task_id>
     $ node todo.js uncomplete <task_id>
-    $ node todo.js tag <task_id> <tag_name1> <tag_name2> ... <tag_name(n)>`)
+    $ node todo.js tag <task_id> <tag_name1> <tag_name2> ... <tag_name(n)>
+    $ node todo.js filter <tag_name>`)
   }
 
   static showList(todoList) {
@@ -33,6 +33,14 @@ class TodoView {
         break;
       case 'delete':
         console.log(`Deleted "${task}" from your TODO list...`);
+        break;
+      case 'tag':
+        console.log(`Tagged task "${task.taskName}" with tags: ${task.tags.join(', ')}`);
+        break;
+      case 'filter':
+        for(let i = 0; i < task.length; i++) {
+          console.log(`${task[i].id}. ${task[i].task}`, task[i].tag);
+        }
         break;
       default:
         console.log(`Data not found`)

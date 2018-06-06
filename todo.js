@@ -32,6 +32,12 @@ switch(command) {
   case 'uncomplete':
     TodoController.completeState(command, args);
     break;
+  case 'tag':
+    TodoController.addTag(command, args);
+    break;
+  case 'filter':
+    TodoController.filterTag(command, args);
+    break;
   default:
     TodoController.showHelp();
 }

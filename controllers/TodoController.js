@@ -111,6 +111,53 @@ class TodoController {
       TodoView.displayMessage("default", null)
     }
   }
+
+  static addTag(command, args) {
+    let searchedId = +args[0]
+    let tags = args.slice(1)
+    let todoList = Todo.getAll()
+    let isFound = false
+    let taskName = ''
+
+    for (let i = 0; i < todoList.length; i++) {
+      let todo = todoList[i]
+      if (todo.id === searchedId) {
+        isFound = true
+        taskName = todo.task
+        todo.addTag(tags)
+        break
+      }
+    }
+    if (isFound) {
+      Todo.write(todoList)
+      TodoView.displayMessage(command, {taskName, tags})
+    } else {
+      TodoView.displayMessage("default", null)
+    }
+  }
+
+  static filterTag(command, args) {
+    var args = args[0]
+    let todoList = Todo.getAll()
+    let isFound = false
+    let foundTodos = []
+
+    for (let i = 0; i < todoList.length; i++) {
+      let todo = todoList[i]
+      for (let j = 0; j < todo.tag.length; j++) {
+        if (todo.tag[j] === args) {
+          foundTodos.push(todo)
+          isFound = true
+          break
+        }
+      }
+    }
+    if (isFound) {
+      TodoView.displayMessage(command, foundTodos)
+    } else {
+      TodoView.displayMessage("default", null)
+    }
+  }
 }
 
 module.exports = TodoController

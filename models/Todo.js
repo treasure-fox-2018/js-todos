@@ -64,6 +64,12 @@ class Todo {
     this.isComplete = false
     this.completedAt = null
   }
+
+  addTag(tags) {
+    for (let i = 0; i < tags.length; i++) {
+      this.tag.push(tags[i])
+    }
+  }
 }
 
 module.exports = Todo

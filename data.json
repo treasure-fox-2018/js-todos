@@ -5,7 +5,10 @@
     "isComplete": false,
     "createdAt": "2018-06-06T07:33:27.630Z",
     "completedAt": null,
-    "tag": []
+    "tag": [
+      "hobby",
+      "plants"
+    ]
   },
   {
     "id": 4,
@@ -13,7 +16,10 @@
     "isComplete": false,
     "createdAt": "2018-06-06T08:31:16.737Z",
     "completedAt": null,
-    "tag": []
+    "tag": [
+      "hobby",
+      "food"
+    ]
   },
   {
     "id": 5,
