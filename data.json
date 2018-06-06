@@ -1,11 +1,1 @@
-[
-  { "id" : 1,
-    "task" : "Bikin aplikasi"
-  },
-  {
-    "id" : 2,
-    "task" : "Main Node.js"},
-  {
-    "id" : 3,
-    "task" : "Lari pagi di pantai"}
-]
+[{"id":"1","status":"complete","task":"Bikin aplikasi"},{"id":"2","status":"uncomplete","task":"Main Node.js"},{"id":"3","status":"uncomplete","task":"Halaman"}]
