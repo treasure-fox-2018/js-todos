@@ -8,12 +8,7 @@ class Controller {
 
   static list () {
     let dataList = Model.list();
-    let stringData = "";
-    for (let i = 0 ; i < dataList.length ; i++) {
-      let dataPerLine = `${dataList[i].id}. ${dataList[i].task} \n`;
-      stringData += dataPerLine;
-    }
-    if (View.list(stringData) === true) {
+    if (View.list(dataList) === true) {
       return true;
     } else return false;
     
