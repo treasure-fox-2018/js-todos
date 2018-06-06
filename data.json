@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 2,
+    "task": "makan mie",
+    "isComplete": false,
+    "tag": []
+  },
+  {
+    "id": 3,
+    "task": "makan ayam",
+    "isComplete": false,
+    "tag": []
+  },
+  {
+    "id": 5,
+    "task": "minum susu",
+    "isComplete": true,
+    "tag": []
+  },
+  {
+    "id": 6,
+    "task": "develop todo list",
+    "isComplete": false,
+    "tag": []
+  },
+  {
+    "id": 7,
+    "task": "fixing bugs",
+    "isComplete": false,
+    "tag": []
+  }
+]
