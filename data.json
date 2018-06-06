@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": 1,
+    "task": "jalan-jalan",
+    "status": "[ ]",
+    "create": "2018-06-06T08:08:42.424Z"
+  },
+  {
+    "id": 2,
+    "task": "nanem ganja",
+    "status": "[X]",
+    "create": "2018-06-06T08:32:03.061Z"
+  },
+  {
+    "id": 3,
+    "task": "lempar batu",
+    "status": "[ ]",
+    "create": "2018-06-06T08:45:25.099Z"
+  },
+  {
+    "id": 4,
+    "task": "ternak hiu",
+    "status": "[X]",
+    "create": "2018-06-06T08:46:07.424Z"
+  },
+  {
+    "id": 5,
+    "task": "beli pesawat",
+    "status": "[ ]",
+    "create": "2018-06-06T08:46:17.520Z",
+    "tag": [
+      "bawaHoki",
+      "bawaHoki"
+    ]
+  },
+  {
+    "id": 6,
+    "task": "nguras air laut",
+    "status": "[X]",
+    "create": "2018-06-06T09:07:51.605Z",
+    "tag": [
+      "hobby",
+      "kurangKerjaan",
+      "bawaHoki"
+    ]
+  },
+  {
+    "id": 7,
+    "task": "ngitung pasir",
+    "status": "[ ]",
+    "create": "2018-06-06T09:08:11.415Z",
+    "tag": [
+      "hobby"
+    ]
+  }
+]
