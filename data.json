@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "id": 1,
+    "task": "membaca",
+    "status": "[x]",
+    "createdAt": "2018-06-06T06:21:30.699Z",
+    "completedAt": "2018-06-06T09:11:57.939Z",
+    "tag": [
+      "activity",
+      "hobby"
+    ]
+  },
+  {
+    "id": 2,
+    "task": "menulis",
+    "status": "[ ]",
+    "createdAt": "2018-06-06T06:21:50.699Z",
+    "completedAt": null,
+    "tag": [
+      "hobby",
+      "job"
+    ]
+  },
+  {
+    "id": 3,
+    "task": "makan",
+    "status": "[x]",
+    "createdAt": "2018-06-06T08:05:19.688Z",
+    "completedAt": "2018-06-06T09:32:32.321Z",
+    "tag": [
+      "hobby",
+      "activity"
+    ]
+  }
+]
