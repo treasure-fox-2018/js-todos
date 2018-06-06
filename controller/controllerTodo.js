@@ -12,32 +12,33 @@ class ControllerTodo {
     ViewTodo.list();
   }
 
-  static add() {
+  static add(task_content) {
     ModelTodo.add(task_content);
     ViewTodo.add(task_content);
+    return true
   }
 
-  static findById() {
+  static findById(task_id) {
     ModelTodo.findById(task_id);
     ViewTodo.findById(task_id);
     return true;
   }
 
-  static delete() {
-    ModelTodo.delete();
-    ViewTodo.delete();
+  static delete(id) {
+    ModelTodo.delete(id);
+    ViewTodo.delete(id);
     return true;
   }
 
-  static complete() {
-    ModelTodo.complete();
-    ViewTodo.complete();
+  static complete(id) {
+    ModelTodo.complete(id);
+    ViewTodo.complete(id);
     return true;
   }
 
-  static uncomplete() {
-    ModelTodo.uncomplete();
-    ViewTodo.uncomplete();
+  static uncomplete(id) {
+    ModelTodo.uncomplete(id);
+    ViewTodo.uncomplete(id);
     return true;
   }
 }

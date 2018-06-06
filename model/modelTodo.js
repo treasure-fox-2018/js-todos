@@ -21,23 +21,36 @@ class ModelTodo {
   }
 
   static add(task_content) {
-    
+    let data = ModelTodo.list()
+
+    let newTask = {
+      "id": data.length + 1,
+      "task_content": task_content
+    }
+
+    data.push(newTask)
+    fs.writeFileSync('./data.json', JSON.stringify(data))
+    return true
   }
 
-  static findById() {
-    
+  static findById(id) {
+    let data = ModelTodo.list()
+    return data
   }
 
   static delete() {
-    
+    let data = ModelTodo.list()
+    return data
   }
 
   static complete() {
-    
+    let data = ModelTodo.list()
+    return data
   }
 
   static uncomplete() {
-    
+    let data = ModelTodo.list()
+    return data
   }
 }
 

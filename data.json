@@ -1,10 +1,39 @@
 [
   {
     "id": 1,
-    "task_content": "Bikin Aplikasi"
+    "task_content": "Bikin Aplikasi",
+    "complete_task": []
   },
   {
     "id": 2,
-    "task_content": "Main Node.js"
+    "task_content": "Main Node.js",
+    "complete_task": []
+  },
+  {
+    "id": 3,
+    "task_content": "add done",
+    "complete_task": [
+      "X"
+    ]
+  },
+  {
+    "id": 4,
+    "task_content": "besok live code",
+    "complete_task": []
+  },
+  {
+    "id": 5,
+    "task_content": "sahur euy",
+    "complete_task": []
+  },
+  {
+    "id": 6,
+    "task_content": "isukan live code cuy",
+    "complete_task": []
+  },
+  {
+    "id": 7,
+    "task_content": "moal lila beres euy",
+    "complete_task": []
   }
 ]
