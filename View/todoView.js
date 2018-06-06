@@ -25,7 +25,13 @@ class todoView {
 
 
   findIdcustom(data) {
-    console.log(data.id + '. ' + data.task)
+    // console.log(data)
+    if (typeof data === 'object') {
+      console.log(data.id + '. ' + data.task)
+    } else {
+      console.log(data)
+    }
+
   }
 
 

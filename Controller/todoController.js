@@ -34,8 +34,9 @@ class todoController {
         tmp.push(data[i])
       }
     }
+
     if (tmp.length === 0) {
-      Views.findIdcustom('No data')
+      Views.findIdcustom('No data Found! ')
     } else {
       Views.findIdcustom(tmp[0])
     }
@@ -66,7 +67,8 @@ class todoController {
 
   listComplete(list) {
     let ar = Models.listComplete(list)
-    Views.viewFindId(ar)
+    // Views.viewFindId(ar)
+    Views.viewList(ar)
   }
 
   addTag(id) {

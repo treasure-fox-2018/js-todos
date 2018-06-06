@@ -21,7 +21,6 @@ class todoModel {
     obj.status = ' '
     obj.created_date = new Date()
     data.push(obj)
-
     let data1 = JSON.stringify(data, null, 1)
     fs.writeFileSync('data.json', data1)
     return obj.task
