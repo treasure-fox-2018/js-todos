@@ -7,6 +7,8 @@ class Todo {
     this.id = obj.id
     this.task = obj.task
     this.isComplete = obj.isComplete || false
+    this.createdAt = obj.createdAt || new Date()
+    this.completedAt = obj.completedAt || null
     this.tag = obj.tag || []
   }
 
@@ -55,10 +57,12 @@ class Todo {
 
   completeTask() {
     this.isComplete = true
+    this.completedAt = new Date()
   }
 
   uncompleteTask() {
     this.isComplete = false
+    this.completedAt = null
   }
 }
 

@@ -11,6 +11,12 @@ switch(command) {
   case 'list':
     TodoController.showList();
     break;
+  case 'list:created':
+    TodoController.showSortedList(command, args);
+    break;
+  case 'list:completed':
+    TodoController.showSortedList(command, args);
+    break;
   case 'add':
     TodoController.addList(command, args);
     break;

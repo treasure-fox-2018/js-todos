@@ -1,32 +1,26 @@
 [
   {
-    "id": 2,
-    "task": "makan mie",
+    "id": 3,
+    "task": "menyiram tanaman",
     "isComplete": false,
+    "createdAt": "2018-06-06T07:33:27.630Z",
+    "completedAt": null,
     "tag": []
   },
   {
-    "id": 3,
+    "id": 4,
     "task": "makan ayam",
     "isComplete": false,
+    "createdAt": "2018-06-06T08:31:16.737Z",
+    "completedAt": null,
     "tag": []
   },
   {
     "id": 5,
-    "task": "minum susu",
+    "task": "catching bugs",
     "isComplete": true,
-    "tag": []
-  },
-  {
-    "id": 6,
-    "task": "develop todo list",
-    "isComplete": false,
-    "tag": []
-  },
-  {
-    "id": 7,
-    "task": "fixing bugs",
-    "isComplete": false,
+    "createdAt": "2018-06-06T08:31:27.749Z",
+    "completedAt": "2018-06-06T08:37:10.807Z",
     "tag": []
   }
 ]

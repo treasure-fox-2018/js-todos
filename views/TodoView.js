@@ -17,11 +17,12 @@ class TodoView {
   }
 
   static showList(todoList) {
-    let symbols = { completed: '[x]', uncompleted: '[ ]' }
+    let symbols = { marked: '[x]', unmarked: '[ ]' }
     console.log("TODO list:")
+    if (todoList.length === 0) { console.log(`There are no tasks yet`) }
     for (let i = 0; i < todoList.length; i++) {
       let todo = todoList[i]
-      console.log(`${todo.id}. ${todo.isComplete ? symbols.completed : symbols.uncompleted} ${todo.task}`)
+      console.log(`${todo.id}. ${todo.isComplete ? symbols.marked : symbols.unmarked} ${todo.task}`)
     }
   }
 
