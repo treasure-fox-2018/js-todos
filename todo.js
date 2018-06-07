@@ -1,16 +1,21 @@
 "use strict"
-// const View = require("./todoView.js")
+
 const Controller = require("./todoController.js")
-// const View = require("./todoView.js")
 const command = process.argv[2]
-// console.log(View)
-// console.log(Controller)
-// var viewTodo = new View()
-// var viewHelp = viewTodo.viewHelp;
+// const idContent = process.argv[3]
 
 switch (command){
-    case "help": Controller.controlHelp()
-    case "list":
+    case "help": Controller.Help()
+    case "list": Controller.List()
+    // case "add": Controller.add(newTask)
+}
+
+if(command === "add" && process.argv[3] !== undefined){
+Controller.Add(process.argv[3])
+}else if(command === "findById" && process.argv[3] !== undefined){
+Controller.FindById(Number(process.argv[3]))
+}else if(command === "delete" && process.argv[3] !== undefined){
+Controller.delete(Number((process.argv[3])))
 }
 // processArgv[2] = viewHelp
 // var viewTodo = new View()
