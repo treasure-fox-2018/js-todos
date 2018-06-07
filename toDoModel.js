@@ -1,32 +1,57 @@
 'use strict'
 
 const fs = require('fs')
-const View = require('./toDoView.js');
 
 class Model {
   constructor(id, task) {
         this._id = id;
-        this._task = title;
+        this._task = task;
     }
-  static findId(id){
+  static createTask(newTask, newId){
     let data = Model.parse();
-    let tasksById = [];
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].id === id) {
-        tasksById.push(data[i].task);
-      }
+    let newToDo = {};
+    if (data.length === 0) {
+      newToDo.id = 1;
+    }else {
+      newToDo.id = data[data.length - 1].id + 1;
     }
-    return tasksById;
-  }
-  static createTask(newTask){
-    let data = Model.parse();
-    let newToDo = {task: newTask};
+    newToDo.check = '[ ]';
+    newToDo.task = newTask;
+    newToDo.tag = [];
     data.push(newToDo);
     fs.writeFileSync('data.json', JSON.stringify(data));
   }
   static parse(){
     const data = JSON.parse(fs.readFileSync('data.json'));
     return data;
+  }
+  static deleteTask(id){
+    let data = Model.parse();
+    for (let i = 0; i < data.length; i++) {
+      if (id == data[i].id) {
+        data.splice(i,1);
+        fs.writeFileSync('data.json', JSON.stringify(data));
+        return true;
+      }
+    }
+  }
+  static completeTask(id){
+    let data = Model.parse();
+    for (let i = 0; i < data.length; i++) {
+      if (id == data[i].id) {
+        data[i].check = '[x]';
+        fs.writeFileSync('data.json', JSON.stringify(data));
+      }
+    }
+  }
+  static unCompleteTask(id){
+    let data = Model.parse();
+    for (let i = 0; i < data.length; i++) {
+      if (id == data[i].id) {
+        data[i].check = '[ ]';
+        fs.writeFileSync('data.json', JSON.stringify(data));
+      }
+    }
   }
 }
 
