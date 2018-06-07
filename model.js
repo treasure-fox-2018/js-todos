@@ -39,9 +39,21 @@ class Model{
         for (let i = 0; i < this.file.length; i++) {
             if (+id == this.file[i].idTask) {
                 this.file[i].complete = true
+                var index = i
             }
         }
-        console.log(this.file);
+        console.log(`"${this.file[index].task}" telah dilakukan`);
+        this.write()
+    }
+
+    uncomplete(id){
+        for (let i = 0; i < this.file.length; i++) {
+            if (+id == this.file[i].idTask) {
+                this.file[i].complete = false
+                var index = i
+            }
+        }
+        console.log(`"${this.file[index].task}" belum dilakukan`);
         this.write()
     }
 

@@ -28,4 +28,9 @@ if (command == 'delete') {
 
 if (command == 'complete') {
     controller.complete(tag)
+}else
+
+if (command == 'uncomplete') {
+    controller.uncomplete(tag)
 }
+

@@ -47,11 +47,13 @@ class Controller{
     }
 
     complete(id){
-        // var arrList = model.file
-        // view.complete(id, arrList)
         model.complete(id)
-
     }
+
+    uncomplete(id){
+        model.uncomplete(id)
+    }
+
 }
 
 class Task{
