@@ -48,6 +48,11 @@ class TaskController {
     static addTagById(id, tag) {
         Model.modelAddTagById(id, tag)
     }
+
+    static findByFilterTag(filterKey) {
+        let filteredData = Model.modelFindByFilterTag(filterKey)
+        View.printTask(filteredData)
+    }
 }
 
 module.exports = TaskController

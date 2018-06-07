@@ -16,6 +16,9 @@ let isCommandListCompleted = command[2] === 'list:completed'
 let isCommandListUncompleted = command[2] === 'list:uncomplete'
 let isCommandListCreated = command[2] === 'list:created'
 let isCommandAddTag = command[2] === 'tag'
+let isFilter = command[2].slice(0, 6)
+let filterKey = command[2].slice(7)
+let isCommandFilter = isFilter === 'filter'
 
 if (isCommandList) {
     Controller.showAllTask()
@@ -48,6 +51,8 @@ if (isCommandList) {
     let id = command[3]
     let tag = command.slice(4)
     Controller.addTagById(id, tag)
+} else if (isCommandFilter) {
+    Controller.findByFilterTag(filterKey)
 } else {
     console.log('Invalid Command')
 }

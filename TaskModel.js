@@ -143,6 +143,20 @@ class TaskModel {
 
         fs.writeFileSync('data.json', taskToStr)
     }
+
+    static modelFindByFilterTag(filterKey) {
+        let allTask = TaskModel.getAllData()
+
+        for (let i = 0; i < allTask.length; i++) {
+            let taskTag = allTask[i].tag
+
+            for (let j = 0; j < taskTag.length; j++) {
+                if (taskTag[j] === filterKey) {
+                    return allTask[i]
+                }
+            }
+        }
+    }
 }
 
 module.exports = TaskModel

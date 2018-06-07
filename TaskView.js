@@ -28,6 +28,10 @@ class TaskView {
         console.log('     Welcome to Todo App \n');
         console.log('Command List :\n1. help\n2. list\n3. add <task_content>\n4. find <id_task>\n5. delete <task_id>\n6. complete <task_id>\n7. uncomplete <task_id>');
     }
+
+    static printTask(task) {
+        console.log(`Found Task : ${task.task} - Tag : ${task.tag}`)
+    }
 }
 
 module.exports = TaskView
