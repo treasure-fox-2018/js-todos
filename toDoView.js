@@ -7,7 +7,7 @@ class View {
     console.log('$ node todo.js help');
   }
   static getHelp(){
-    let helpArr = ['$ node todo.js','$ node todo.js help','$ node todo.js list','$ node todo.js add <task_content>','$ node todo.js findById <task_id>','$ node todo.js delete <task_id>','$ node todo.js complete <task_id>','$ node todo.js uncomplete <task_id>'];
+    let helpArr = ['$ node todo.js','$ node todo.js help','$ node todo.js list','$ node todo.js add <task_content>','$ node todo.js findById <task_id>','$ node todo.js delete <task_id>','$ node todo.js complete <task_id>','$ node todo.js uncomplete <task_id>','$ node todo.js list:created <sort_by_asc_/_desc>','$ node todo.js addTag <tags>', '$ node todo.js filter:<filter_by>'];
     for (var i = 0; i < helpArr.length; i++) {
       console.log(helpArr[i]);
     }
