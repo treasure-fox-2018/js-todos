@@ -2,15 +2,16 @@
 
 class TaskView {
     static printAllTask(tasks) {
-        console.log('     Welcome to Todo App \n');
-        console.log('     Task List :');
+        console.log('      Welcome to Todo App \n');
+        console.log('          Task List :\n');
+        console.log(`     [ s ] [ id  ]     task\n`)
         for (let i = 0; i < tasks.length; i++) {
             let arrObjTasks = tasks[i]
             let isCompleted = arrObjTasks.status === "1"
             if (isCompleted) {
-                console.log(`[ x ]  ${arrObjTasks.task}`)
+                console.log(`     [ x ] [ ${arrObjTasks.id} ]   ${arrObjTasks.task}`)
             } else {
-                console.log(`[   ]  ${arrObjTasks.task}`);
+                console.log(`     [   ] [ ${arrObjTasks.id} ]   ${arrObjTasks.task}`);
             }
         }
 

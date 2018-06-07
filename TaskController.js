@@ -34,6 +34,24 @@ class TaskController {
     static uncompleteTask(id) {
         Model.modelUncompleteTask(id)
     }
+
+    static generateID() {
+        let kamusAngka = '123456789'
+        let kamusHuruf = 'abc'
+
+        let id = (kamusAngka.charAt(Math.floor(Math.random() * 9))) + (kamusAngka.charAt(Math.floor(Math.random() * 9)))
+
+        return id;
+    }
 }
 
 module.exports = TaskController
+
+
+
+
+
+
+
+
+//

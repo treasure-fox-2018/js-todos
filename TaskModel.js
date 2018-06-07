@@ -1,6 +1,7 @@
 'use strict'
 
 const fs = require('fs')
+const TaskController = require('./TaskController.js')
 
 class TaskModel {
     static getAllData() {
@@ -11,7 +12,9 @@ class TaskModel {
     static writeTask (task, status) {
         // get data from json file
         let allTask = TaskModel.getAllData()
+        // let id  = TaskController.generateID()
         let isCompleted = '1'
+
         if (status === 'completed') {
             isCompleted = '1'
         } else {

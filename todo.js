@@ -13,6 +13,7 @@ let isCommandDelete = command[2] === 'delete'
 let isCommandComplete = command[2] === 'complete'
 let isCommandUncomplete = command[2] === 'uncomplete'
 
+
 if (isCommandList) {
     Controller.showAllTask()
 } else if (isCommandAdd) {
@@ -33,4 +34,6 @@ if (isCommandList) {
 } else if (isCommandUncomplete) {
   let id = command[3]
   Controller.uncompleteTask(id)
+} else {
+    console.log('Invalid Command')
 }
