@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "task": "makan ayam",
+    "isComplete": false,
+    "tag": []
+  },
+  {
+    "id": 2,
+    "task": "develop todo list",
+    "isComplete": false,
+    "tag": []
+  }
+]
