@@ -7,24 +7,13 @@ class Controller {
   }
   
   static help () {
-    let listHelp = {
-      list : "node todo.js list",
-      add : "node todo.js add <task_content>",
-      findByID : "node todo.js findByID <task_id>",
-      delete : "node todo.js delete <task_id>",
-      complete : "node todo.js complete <task_id>",
-      uncomplete : "node todo.js uncomplete <task_id>"
-    }
-    if (View.printHelp(listHelp) === true) {
-      return true;
-    } else return false;
+    let list_Help = Model.listHelp();
+    View.printHelp(list_Help);
   }
 
   static list () {
     let dataList = Model.read();
-    if (View.printList(dataList) === true) {
-      return true;
-    } else return false;
+    View.printList(dataList) 
   }
 
   static add (newTask) {
@@ -36,58 +25,39 @@ class Controller {
       task : newTask
     }
     if (Model.create(newData) === true) {
-      if (View.printAddedData(newData) === true) {
-        return true;
-      }
-    }
-    
-    return false;
+      View.printAddedData(newData)
+    } else View.printAddError();
   }
 
   static findById (id) {
-    let dataList = Model.read();
-    for (let i = 0 ; i < dataList.length ; i++) {
-      if (dataList[i].id === id) {
-        if (View.printID(dataList[i]) === true) {
-          
-          return true;
-        }
-      }
-    }
-    return false;
+    let data = Model.findById(id) ;
+    if (data !== false) {
+      View.printID(data);
+    } else View.printFindError();
   }
 
   static delete (id) {
-    let dataList = Model.read();
-    for (let i = 0 ; i < dataList.length ; i++) {
-      if (dataList[i].id === id) {
-        
-        let deletedTask = dataList[i].task;
-        if (Model.delete(id) === true) {
-          if (View.printDeleted(deletedTask) === true) {
-            return true;
-          } 
-        }
-        
-      }
-    }
-    return false;
+    let deletedTask = Model.delete(id);
+    // console.log(deletedTask)
+    if (deletedTask !== false) {
+      View.printDeleted(deletedTask);
+    } else View.printDeletedError();
   }
 
-/*
   static complete (id) {
-    let dataList = Model.read();
-    for (let i = 0 ; i < dataList.length ; i++) {
-      if (dataList[i].id === id) {
-        dataList[i].status = "complete";
-        if (View.printList(dataList) === true) {
-          return true;
-        } else return false;
-      }
-    }
-    return false;
+    let updateData = Model.Update(id,"status","complete")
+    if (updateData !== false) {
+      View.printList(updateData)
+    } else View.printCompleteError();
   }
-  */
+
+  static uncomplete (id) {
+    let updateData = Model.Update(id,"status","uncomplete")
+    if (updateData !== false) {
+      View.printList(updateData)
+    } else View.printCompleteError();
+  }
+
 }
 
 
