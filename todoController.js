@@ -1,22 +1,52 @@
 'use strict'
 
-let todoModel = require('./todoModel.js')
-let todoView = require('./todoView.js')
+let Model = require('./todoModel.js')
+let View = require('./todoView.js')
 
 class Controller{
     static list(){
-        let todoModel = new todoModel.list()
-        let list = new todoView(todoModel)
+        let model = Model.list()
+        let list = View.list(model)
     }
 
     static add(newTask){
-        let todoModel = new todoModel.list()
-        let todoModelNew = new todoModel.list()
-        let newTask = {id: todoModel+1, task: newTask}
-        todoModelNew.push(newTask)
+       let adding = Model.add(newTask)
+       let result = View.add(newTask, adding)
+    }
 
-        let add = new todoModel.write(todoModel)
-        let todoView = new todoView.add(todoModel,todoModelNew )
+    static findById(id){
+        let find = Model.findById(id)
+        let result = View.findById(find)
+    }
+
+    static delete(id){
+        let remove = Model.delete(id)
+        let result = View.delete(remove)
+    }
+
+    static complete(id){
+        let addStat = Model.complete(id)
+        let result = View.complete(addStat)
+    }
+
+    static uncomplete(id){
+        let rmvStat = Model.uncomplete(id)
+        let result = View.uncomplete(rmvStat)
+    }
+
+    static listByOrder(option){
+        let model = Model.list()
+        let list = View.listByOrder(model, option)
+    }
+
+    static addTag(tag, id){
+        let adding = Model.addTag(tag, id)
+        let result = View.addTag(adding)
+    }
+
+    static filter(tag){
+        let find = Model.filter(tag)
+        let result = View.filter(find)
     }
 }
 
