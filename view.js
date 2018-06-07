@@ -15,6 +15,16 @@ class View{
         for (let i = 0; i < arrList.length; i++) {
             console.log(`${arrList[i].idTask}. ${arrList[i].task}`);  
         }
+
+    }
+
+    find(id,arrList){
+        for (let i = 0; i < arrList.length; i++) {
+            if (id == arrList[i].idTask) {
+                console.log(`${arrList[i].idTask}. ${arrList[i].task}`);               
+            }
+        }
+        // console.log(arrList);
         
     }
 }

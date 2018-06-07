@@ -16,5 +16,8 @@ if (command == 'list') {
 
 if (command == 'add') {
     controller.add(tag)
-}
+}else
 
+if (command == 'findById') {
+    controller.findById(tag)
+}

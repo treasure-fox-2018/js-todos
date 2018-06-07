@@ -23,6 +23,11 @@ class Controller{
         console.log(`Added "${newTask.task}" to your to do list`);
         
     }
+
+    findById(id){
+        var arrList = model.file
+        view.find(id,arrList)
+    }
 }
 
 class Task{
