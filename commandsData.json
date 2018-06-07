@@ -1,3 +1,0 @@
-{
-    "data": ["help", "list", "add <taskContent>", "findById <taskId>", "complete <taskId>", "uncomplete <task_Id"]
-}
