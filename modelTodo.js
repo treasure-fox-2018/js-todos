@@ -1,4 +1,4 @@
-
+var fs = require('fs')
 
 class Model_todo{
     constructor(){
@@ -18,26 +18,37 @@ class Model_todo{
         return arrList
     }
 
+    
+    
     add(){
-
+        
     }
-
+    
     findById(){
-
+        
     }
-
+    
     delete(){
-
+        
     }
-
+    
     complete(){
 
     }
-
+    
     uncomplete(){
         
     }
-
+    
+    static showListTugas(){
+        var listTugas = fs.readFileSync('data.json','utf8')
+        var parsing = JSON.parse(listTugas)
+        return parsing
+        
+    }
 }
+
+console.log(typeof(Model_todo.showListTugas()))
+console.log(Model_todo.showListTugas())
 
 module.exports = Model_todo

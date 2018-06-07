@@ -11,6 +11,11 @@ class Controller_todo{
     static add(){
         // Model.add()
     }
+
+    static showListTugas(){
+        var listTugas = Model.showListTugas()
+        View.showListTugas(listTugas)
+    }
 }
 
 

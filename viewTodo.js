@@ -6,6 +6,10 @@ class View_todo{
             }
         }
     }
+
+    static showListTugas(list_tugas){
+        console.log(list_tugas);
+    }
 }
 
 module.exports = View_todo
