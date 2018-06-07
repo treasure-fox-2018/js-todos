@@ -14,7 +14,11 @@ class View {
   }
   static displayList(data){
     for (var i = 0; i < data.length; i++) {
-      console.log(`${data[i].id}. ${data[i].check} ${data[i].task}`);
+      if (data[i].tag.length === 0) {
+        console.log(`${data[i].id}. ${data[i].check} ${data[i].task} (date added: ${new Date(data[i].date)})`);
+      }else {
+        console.log(`${data[i].id}. ${data[i].check} ${data[i].task} [${data[i].tag}] (date added: ${new Date(data[i].date)})`);
+      }
     }
   }
   static displayAddSuccess(){
@@ -28,6 +32,24 @@ class View {
       console.log('task deletion successful');
     }else {
       console.log('task deletion failed');
+    }
+  }
+  static displaySortByDate(data){
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].tag.length === 0) {
+        console.log(`${data[i].id}. ${data[i].check} ${data[i].task} (date added: ${new Date(data[i].date)})`);
+      }else {
+        console.log(`${data[i].id}. ${data[i].check} ${data[i].task} [${data[i].tag}] (date added: ${new Date(data[i].date)})`);
+      }
+    }
+  }
+  static displayFilter(data){
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].tag.length === 0) {
+        console.log(`${data[i].id}. ${data[i].check} ${data[i].task} (date added: ${new Date(data[i].date)})`);
+      }else {
+        console.log(`${data[i].id}. ${data[i].check} ${data[i].task} [${data[i].tag}] (date added: ${new Date(data[i].date)})`);
+      }
     }
   }
 }

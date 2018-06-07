@@ -18,8 +18,9 @@ class Model {
     newToDo.check = '[ ]';
     newToDo.task = newTask;
     newToDo.tag = [];
+    newToDo.date = new Date();
     data.push(newToDo);
-    fs.writeFileSync('data.json', JSON.stringify(data));
+    Model.updateToDo(data);
   }
   static parse(){
     const data = JSON.parse(fs.readFileSync('data.json'));
@@ -29,8 +30,8 @@ class Model {
     let data = Model.parse();
     for (let i = 0; i < data.length; i++) {
       if (id == data[i].id) {
-        data.splice(i,1);
-        fs.writeFileSync('data.json', JSON.stringify(data));
+        let deleted = data.splice(i,1);
+        Model.updateToDo(data);
         return true;
       }
     }
@@ -40,7 +41,7 @@ class Model {
     for (let i = 0; i < data.length; i++) {
       if (id == data[i].id) {
         data[i].check = '[x]';
-        fs.writeFileSync('data.json', JSON.stringify(data));
+        Model.updateToDo(data);
       }
     }
   }
@@ -49,10 +50,23 @@ class Model {
     for (let i = 0; i < data.length; i++) {
       if (id == data[i].id) {
         data[i].check = '[ ]';
-        fs.writeFileSync('data.json', JSON.stringify(data));
+        Model.updateToDo(data);
+      }
+    }
+  }
+  static updateToDo(data){
+    fs.writeFileSync('data.json', JSON.stringify(data));
+  }
+  static addTag(id, tags){
+    let data = Model.parse();
+    for (let i = 0; i < data.length; i++) {
+      if (id == data[i].id) {
+        for (let j = 0; j < tags.length; j++) {
+          data[i].tag.push(tags[j]);
+        }
+        Model.updateToDo(data);
       }
     }
   }
 }
-
 module.exports = Model;
