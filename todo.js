@@ -8,8 +8,13 @@ var tes = process.argv
 
 if (command == 'help' || command == undefined) {
     controller.help()
-}
+}else
 
 if (command == 'list') {
     controller.list()
+}else
+
+if (command == 'add') {
+    controller.add(tag)
 }
+

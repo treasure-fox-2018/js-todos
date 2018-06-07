@@ -13,8 +13,7 @@ class View{
 
     list(arrList){
         for (let i = 0; i < arrList.length; i++) {
-            console.log(`${arrList[i].idTask}. ${arrList[i].task}`);
-            
+            console.log(`${arrList[i].idTask}. ${arrList[i].task}`);  
         }
         
     }

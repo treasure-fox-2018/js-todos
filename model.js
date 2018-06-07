@@ -13,8 +13,23 @@ class Model{
         return this._file
     }
 
+    add(task){
+        this._file.push(task)
+        this.write()
+        // console.log(this._file);
+        
+    }
+
+    write(){
+        var newTask = JSON.stringify(this._file)
+        fs.writeFileSync('data.json',newTask)
+        return 'Data telah Disimpan!'
+    }
+
 
 }
+// console.log(display_data);
 
 let model = new Model('data.json')
+
 module.exports = model
