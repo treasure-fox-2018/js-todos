@@ -44,6 +44,10 @@ class TaskController {
         let sortedData = Model.modelSortByStatus(status)
         View.printAllTask(sortedData)
     }
+
+    static addTagById(id, tag) {
+        Model.modelAddTagById(id, tag)
+    }
 }
 
 module.exports = TaskController

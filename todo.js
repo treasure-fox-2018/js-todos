@@ -15,6 +15,7 @@ let isCommandList = command[2] === 'list'
 let isCommandListCompleted = command[2] === 'list:completed'
 let isCommandListUncompleted = command[2] === 'list:uncomplete'
 let isCommandListCreated = command[2] === 'list:created'
+let isCommandAddTag = command[2] === 'tag'
 
 if (isCommandList) {
     Controller.showAllTask()
@@ -43,6 +44,10 @@ if (isCommandList) {
     Controller.sortByStatus(1)
 } else if (isCommandListUncompleted) {
     Controller.sortByStatus(0)
+} else if (isCommandAddTag) {
+    let id = command[3]
+    let tag = command.slice(4)
+    Controller.addTagById(id, tag)
 } else {
     console.log('Invalid Command')
 }

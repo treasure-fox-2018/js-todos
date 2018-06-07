@@ -129,6 +129,20 @@ class TaskModel {
 
         return sortedData
     }
+
+    static modelAddTagById(id, tag) {
+        let allTask = TaskModel.getAllData()
+
+        for (let i = 0; i < allTask.length; i++) {
+            if (allTask[i].id === parseInt(id)) {
+                allTask[i].tag = tag
+            }
+        }
+
+        let taskToStr = JSON.stringify(allTask)
+
+        fs.writeFileSync('data.json', taskToStr)
+    }
 }
 
 module.exports = TaskModel
