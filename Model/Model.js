@@ -1,14 +1,23 @@
 let fs = require('fs')
+let listData = JSON.parse(fs.readFileSync('./data.json', 'utf8'))
 
 class Model {
-  static Help() {
-    let menuHelpArr = []
-    for (let i = 0; i < 8; i++) {
-      let menuHelp = ['$ node todo.js']
-      menuHelpArr.push(menuHelp[i])
+  static list() {
+    return listData
+  }
+
+  static add(newTask) {
+    let addList = {
+      id: this.list().length+1,
+      task: newTask
     }
-    return menuHelpArr
+    listData.push(addList)
+    fs.writeFileSync('./data.json', JSON.stringify(listData)) // don't stringify if modified unpushed
+  }
+
+  static findById() {
+    return listData
   }
 }
-
+// console.log(Model.list()) this display data JSON
 module.exports = Model
