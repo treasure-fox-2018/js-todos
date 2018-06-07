@@ -16,18 +16,19 @@ class View {
   static printList (dataList) {
     let stringData = "";
     let status = "";
+    let tag = "";
     for (let i = 0 ; i < dataList.length ; i++) {
       if (dataList[i].status === "complete") {
         status = "[x]"
       } else status = "[ ]";
-      let dataPerLine = `${status} ${dataList[i].id}. ${dataList[i].task} \n`;
+      let dataPerLine = `${status} ${dataList[i].id}. ${dataList[i].task}, tag: ${dataList[i].tag.join(" ")}, created:${new Date (dataList[i].createDate)}\n`;
       stringData += dataPerLine;
     }
     console.log(stringData);
   }
 
-  static printAddedData(newData) {
-    let print = `Added "${newData.task}" to your TODO list...`;
+  static printAddedData(newTask) {
+    let print = `Added "${newTask}" to your TODO list...`;
     console.log(print);
   }
 
@@ -38,6 +39,11 @@ class View {
 
   static printDeleted(deletedData) {
     let print = `Deleted "${deletedData.task}" to your TODO list...`
+    console.log(print);
+  }
+
+  static printAddTag(data,tag) {
+    let print = `Tagged task "${data.task}" with tags : ${tag.join(" ")}`
     console.log(print);
   }
 
@@ -56,6 +62,19 @@ class View {
   static printCompleteError() {
     console.log("Error complete file / File not found")
   }
+
+  static printWrongParam() {
+    console.log("Please see help for info")
+  }
+
+  static printErrorTag() {
+    console.log("Error adding Tag / File not found")
+  }
+
+  static printFilterError() {
+    console.log("Error filter Tag / File not found")
+  }
+
 }
 
 module.exports = View;

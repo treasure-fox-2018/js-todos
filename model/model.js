@@ -24,8 +24,16 @@ class Model {
     return dataList;
   }
 
-  static create(newData) {
+  static create(newTask) {
     let dataList = Model.read();
+    let nextId = dataList.length+1;
+    let newData = {
+      id : String(nextId),
+      status : "uncomplete",
+      task : newTask,
+      createDate : new Date(),
+      tag : []
+    }
     dataList.push(newData);
     let newDataList=JSON.stringify(dataList);
     let dataJSON=fs.writeFileSync('./data.json', newDataList);
@@ -69,6 +77,23 @@ class Model {
     return false;
   }
 
+  static filterTag(tag) {
+    let dataList = Model.read();
+    let filterData = [];
+    let isFound = false;
+    for (let i = 0 ; i < dataList.length ; i++) {
+      for (let j = 0 ; j < dataList[i].tag.length ; j++) {
+        if (dataList[i].tag[j] === tag) {
+          filterData.push(dataList[i])
+          isFound = true;
+        }
+      }
+    }
+    if (isFound === true) {
+      return filterData
+    }
+    return false;
+  }
 }
 
 module.exports = Model;
