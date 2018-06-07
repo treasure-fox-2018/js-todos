@@ -1,1 +1,3 @@
-[]
+[{"id":1,"task":"Baca webtoonyuk","status":"uncomplete","date":"2018-06-07T12:16:22.897Z", "tag": ["hobby"]},
+{"id":2,"task":"Belajar Node","status":"uncomplete","date":"2018-06-07T12:17:21.304Z", "tag": ["study", "important"]},
+{"id":3,"task":"review materi week ini","status":"complete","date":"2018-06-07T12:17:41.357Z", "tag": ["study", "hactiv8"]}]
