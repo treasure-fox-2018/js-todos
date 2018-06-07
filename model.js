@@ -35,6 +35,16 @@ class Model{
         this.write()
     }
 
+    complete(id){
+        for (let i = 0; i < this.file.length; i++) {
+            if (+id == this.file[i].idTask) {
+                this.file[i].complete = true
+            }
+        }
+        console.log(this.file);
+        this.write()
+    }
+
 }
 // console.log(display_data);
 

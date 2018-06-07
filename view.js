@@ -13,7 +13,11 @@ class View{
 
     list(arrList){
         for (let i = 0; i < arrList.length; i++) {
-            console.log(`${arrList[i].idTask}. ${arrList[i].task}`);  
+            if (arrList[i].complete) {
+                console.log(`${arrList[i].idTask}. [x] ${arrList[i].task}`);
+            }else{
+                console.log(`${arrList[i].idTask}. [ ] ${arrList[i].task}`);
+            }
         }
 
     }
@@ -25,8 +29,8 @@ class View{
             }
         }
         // console.log(arrList);
-        
     }
+
 }
 
 var view = new View()

@@ -24,4 +24,8 @@ if (command == 'findById') {
 
 if (command == 'delete') {
     controller.delete(tag)
+}else
+
+if (command == 'complete') {
+    controller.complete(tag)
 }
