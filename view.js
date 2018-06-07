@@ -10,19 +10,45 @@ class View {
     }
 
     static showDisplay(data) {
+        let stats = '';
+        let str = '';
         for (let i = 0; i < data.length; i++) {
-            console.log(`${data[i].id}. ${data[i].task}`);
+            if(data[i].status === 'complete') {
+                stats = '[x]';
+            } else {
+                stats = '[ ]';
+            }
+            var listdata = `${stats} ${data[i].id}. ${data[i].task} \n`
+            str += listdata;
         }
+        console.log(str);
     }
 
     static addSuccessful() {
         console.log('Added task successfully!');
     }
 
+    static addFailed() {
+        console.log('Task not added, Error!');
+    }
+
     static displayById(idtask) {
         for (let i = 0; i < idtask.length; i++) {
-            console.log(idtask[i]);
+            console.log(idtask);
         }
+    }
+
+    static deleteSuccessful() {
+        console.log('Task removed');
+    }
+
+    static deleteError() {
+        console.log('Deletion error')
+    }
+
+    static listUpdate() {
+        console.log('Update: completed task');
+
     }
 }
 

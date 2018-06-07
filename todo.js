@@ -6,15 +6,19 @@ const Controller = require('./controller.js');
 
 var argv = process.argv;
 const command = argv[2];
-const inputOne = argv[3];
-const inputTwo = argv[4];
+const taskInput = argv[3];
 
 if (command === 'help') {
     Controller.helpList();
 } else if (command === 'list') {
     Controller.todoList();
 } else if (command === 'add') {
-    Controller.addTask(inputOne, inputTwo);
+    // console.log(taskInput);
+    Controller.addTask(taskInput);
 } else if (command === 'findById') {
-    Controller.findById(inputOne);
+    Controller.findById(taskInput);
+} else if (command === 'delete') {
+    Controller.deleteTask(taskInput);
+} else if (command === 'complete') {
+    Controller.taskCompleted(taskInput);
 }
