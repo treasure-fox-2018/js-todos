@@ -12,17 +12,17 @@ class TaskModel {
     static writeTask (task, status) {
         // get data from json file
         let allTask = TaskModel.getAllData()
-        // let id  = TaskController.generateID()
+
         let isCompleted = '1'
 
         if (status === 'completed') {
-            isCompleted = '1'
+            isCompleted = 1
         } else {
-            isCompleted = '0'
+            isCompleted = 0
         }
 
         // create object and push into array of object
-        let objTask = {'id': '000','task' : task, 'status': isCompleted}
+        let objTask = {'id': allTask.length + 1,'task' : task, 'status': isCompleted}
         allTask.push(objTask)
 
         // parse object into string type
@@ -30,6 +30,8 @@ class TaskModel {
 
         //write data.json file
         fs.writeFileSync('data.json', taskToStr)
+
+        console.log(`Berhasil menambahkan Task : ${task}`);
     }
 
     static modelFindTaskById (id) {
@@ -40,7 +42,7 @@ class TaskModel {
         for (let i = 0; i < allTask.length; i++) {
             let taskData = allTask[i]
 
-            if (taskData.id === id) {
+            if (taskData.id == id) {
                 foundTask.id = taskData.id
                 foundTask.task = taskData.task
                 foundTask.index = i
@@ -61,6 +63,8 @@ class TaskModel {
 
         //write data.json file
         fs.writeFileSync('data.json', taskToStr)
+
+        console.log(`Anda berhasil menghapus task`);
     }
 
     static modelCompleteTask(id) {
@@ -69,8 +73,8 @@ class TaskModel {
         for (let i = 0; i < allTask.length; i++) {
             let taskData = allTask[i]
 
-            if (taskData.id === id) {
-                taskData.status = "1"
+            if (taskData.id == id) {
+                taskData.status = 1
             }
         }
 
@@ -78,6 +82,27 @@ class TaskModel {
 
         //write data.json file
         fs.writeFileSync('data.json', taskToStr)
+
+        console.log(`Anda berhasil menyelesaikan task ${allTask[id].task}`);
+    }
+
+    static modelUncompleteTask(id) {
+        let allTask = TaskModel.getAllData()
+
+        for (let i = 0; i < allTask.length; i++) {
+            let taskData = allTask[i]
+
+            if (taskData.id == id) {
+                taskData.status = 0
+            }
+        }
+
+        let taskToStr = JSON.stringify(allTask)
+
+        //write data.json file
+        fs.writeFileSync('data.json', taskToStr)
+
+        console.log(`Anda mengubah status task ${allTask[id].task} menjadi belum selesai. Selesaikan segera ya. `);
     }
 
 }
