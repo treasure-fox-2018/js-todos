@@ -24,6 +24,9 @@ class View {
   static findById(id, task, msg) {
     console.log(`${id} : ${task}`)
   }
+  static deleteById(delData) {
+    console.log(delData)
+  }
 }
 // console.log(View.viewHelp())
 module.exports = View

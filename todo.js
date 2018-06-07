@@ -13,6 +13,10 @@ if (inputNode[2] === undefined) {
   Control.controlAdd(inputNode[3])
 } else if (inputNode[2] === 'findById' && inputNode[3] !== undefined) {
   Control.controlFindById(Number(inputNode[3]))
+} else if (inputNode[2] === 'delete' && inputNode[3] !== undefined) {
+  Control.controlDelete(Number(inputNode[3]))
+} else if (inputNode[2] === 'complete' && inputNode[3] !== undefined) {
+  // Control.
 }
 
 

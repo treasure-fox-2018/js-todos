@@ -33,11 +33,21 @@ class Controller {
     let findId = id
     let data = Model.list()
     for (let i = 0; i < data.length; i++) {
-      if (data[i].id === id) {
+      if (data[i].id === findId) {
         View.findById(data[i].id, data[i].task)
       }
     }
-    // View.findById(data)
+  }
+  static controlDelete(id) {
+    let deleteId = id
+    let dataJs = Model.deleteList(id)
+    for (let i = 0; i < dataJs.length; i++) {
+      if (dataJs[i].id === deleteId) {
+        // dataJs.splice(deleteId, 1)
+        Model.deleteList(dataJs)
+        View.deleteById(dataJs)
+      }
+    }
   }
 }
 

@@ -18,6 +18,16 @@ class Model {
   static findById() {
     return listData
   }
+  static deleteList(delArr) {
+    for(var i = 0; i < listData.length; i++){
+      if(listData[i].id === Number(delArr)){
+        listData.splice(i,1)
+        fs.writeFileSync('./data.json', JSON.stringify(listData))
+      }
+    }
+   
+    // return listData
+  }
 }
 // console.log(Model.list()) this display data JSON
 module.exports = Model
