@@ -16,7 +16,9 @@ if (inputNode[2] === undefined) {
 } else if (inputNode[2] === 'delete' && inputNode[3] !== undefined) {
   Control.controlDelete(Number(inputNode[3]))
 } else if (inputNode[2] === 'complete' && inputNode[3] !== undefined) {
-  // Control.
+  Control.controlCompleted(Number(inputNode[3]))
+} else if (inputNode[2] === 'uncomplete' && inputNode[3] !== undefined) {
+  Control.controlUnCompleted(Number(inputNode[3]))
 }
 
 

@@ -15,7 +15,7 @@ class View {
   static viewList(list) {
     // console.log(list) // this not displaying
     for (let i = 0; i < list.length; i++) {
-      console.log(`${list[i].id} : ${list[i].task} `)
+      console.log(`${list[i].id} : [${list[i].mark}] ${list[i].task} `)
     }
   }
   static viewAdd(newTask) {
@@ -24,8 +24,8 @@ class View {
   static findById(id, task, msg) {
     console.log(`${id} : ${task}`)
   }
-  static deleteById(delData) {
-    console.log(delData)
+  static deleteById() {
+    console.log(`Your list are deleted in your TODO list. . .`)
   }
 }
 // console.log(View.viewHelp())

@@ -25,6 +25,24 @@ class Controller {
     let list = Model.list() // pict from JSON
     View.viewList(list)
   }
+  static controlCompleted(markId){
+    let dataJs = Model.list(markId)
+    for (let i = 0; i < dataJs.length; i++) {
+      if (dataJs[i].id === markId) {
+        Model.completeList(markId)
+        View.viewList(dataJs)
+      }
+    }
+  }
+  static controlUnCompleted(unMarkid) {
+    let dataJs = Model.list(unMarkid)
+    for (let i = 0; i < dataJs.length; i++) {
+      if (dataJs[i].id === unMarkid) {
+        Model.unCompleteList(unMarkid)
+        View.viewList(dataJs)
+      }
+    }
+  }
   static controlAdd(newTask) {
     let addList = Model.add(newTask)
     View.viewAdd(newTask)
@@ -40,14 +58,8 @@ class Controller {
   }
   static controlDelete(id) {
     let deleteId = id
-    let dataJs = Model.deleteList(id)
-    for (let i = 0; i < dataJs.length; i++) {
-      if (dataJs[i].id === deleteId) {
-        // dataJs.splice(deleteId, 1)
-        Model.deleteList(dataJs)
-        View.deleteById(dataJs)
-      }
-    }
+    Model.deleteList(id)
+    View.deleteById()
   }
 }
 
