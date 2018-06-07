@@ -12,8 +12,8 @@ class TaskModel {
     static writeTask (task, status) {
         // get data from json file
         let allTask = TaskModel.getAllData()
-
-        let isCompleted = '1'
+        let dateCreated = new Date()
+        let isCompleted  = '1'
 
         if (status === 'completed') {
             isCompleted = 1
@@ -22,7 +22,7 @@ class TaskModel {
         }
 
         // create object and push into array of object
-        let objTask = {'id': allTask.length + 1,'task' : task, 'status': isCompleted}
+        let objTask = {'id': allTask.length + 1,'task' : task, 'status': isCompleted, 'dateCreated': dateCreated}
         allTask.push(objTask)
 
         // parse object into string type
@@ -105,6 +105,43 @@ class TaskModel {
         console.log(`Anda mengubah status task ${allTask[id].task} menjadi belum selesai. Selesaikan segera ya. `);
     }
 
+    static modelSortByOrder(order) {
+        let sortedData = TaskModel.getAllData()
+
+        if (order === 'asc') {
+            sortedData.sort(function(a, b) {return new Date(a.dateCreated) - new Date(b.dateCreated)})
+        } else if (order === 'desc') {
+            sortedData.sort(function(a, b) {return new Date(b.dateCreated) - new Date(a.dateCreated)})
+        }
+
+        return sortedData
+    }
+
+    static modelSortByStatus(status) {
+        let allTask = TaskModel.getAllData()
+        let sortedData = []
+
+        for (let i = 0; i < allTask.length; i++) {
+            if (allTask[i].status === parseInt(status)) {
+                sortedData.push(allTask[i])
+            }
+        }
+
+        return sortedData
+    }
 }
 
 module.exports = TaskModel
+
+
+
+
+
+
+
+
+
+
+
+
+//

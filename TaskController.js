@@ -34,6 +34,16 @@ class TaskController {
     static uncompleteTask(id) {
         Model.modelUncompleteTask(id)
     }
+
+    static sortByOrder(order) {
+        let sortedData = Model.modelSortByOrder(order)
+        View.printAllTask(sortedData)
+    }
+
+    static sortByStatus(status) {
+        let sortedData = Model.modelSortByStatus(status)
+        View.printAllTask(sortedData)
+    }
 }
 
 module.exports = TaskController

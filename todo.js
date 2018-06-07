@@ -6,13 +6,15 @@ let Controller = require('./TaskController.js')
 let command = process.argv;
 let isCommandEmpty = command[2] === undefined
 let isCommandHelp = command[2] === 'help'
-let isCommandList = command[2] === 'list'
 let isCommandAdd = command[2] === 'add'
 let isCommandFind = command[2] === 'find'
 let isCommandDelete = command[2] === 'delete'
 let isCommandComplete = command[2] === 'complete'
 let isCommandUncomplete = command[2] === 'uncomplete'
-
+let isCommandList = command[2] === 'list'
+let isCommandListCompleted = command[2] === 'list:completed'
+let isCommandListUncompleted = command[2] === 'list:uncomplete'
+let isCommandListCreated = command[2] === 'list:created'
 
 if (isCommandList) {
     Controller.showAllTask()
@@ -26,14 +28,35 @@ if (isCommandList) {
 } else if (isCommandHelp || isCommandEmpty) {
     Controller.showHelp()
 } else if (isCommandDelete) {
-  let id = command[3]
-  Controller.deleteTask(id)
+    let id = command[3]
+    Controller.deleteTask(id)
 } else if (isCommandComplete) {
-  let id = command[3]
-  Controller.completeTask(id)
+    let id = command[3]
+    Controller.completeTask(id)
 } else if (isCommandUncomplete) {
-  let id = command[3]
-  Controller.uncompleteTask(id)
+    let id = command[3]
+    Controller.uncompleteTask(id)
+} else if (isCommandListCreated) {
+    let order = command[3]
+    Controller.sortByOrder(order)
+} else if (isCommandListCompleted) {
+    Controller.sortByStatus(1)
+} else if (isCommandListUncompleted) {
+    Controller.sortByStatus(0)
 } else {
     console.log('Invalid Command')
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
