@@ -12,10 +12,25 @@ class Controller {
     View.printAllTask(allTask)
   }
 
-  static addTask(newTask) {
-    Model.writeTask(newTask)
+  static addTask(newTask, newStatus) {
+    Model.writeTask(newTask, newStatus)
   }
 
+  static findTaskById(targetId) {
+    Model.getTaskById(targetId)
+  }
+
+  static deleteTask(targetId) {
+    Model.deleteTask(targetId)
+  }
+
+  static completeTask(targetId) {
+    Model.completeTask(targetId)
+  }
+
+  static uncompleteTask(targetId) {
+    Model.uncompleteTask(targetId)
+  }
 }
 
 module.exports = Controller
