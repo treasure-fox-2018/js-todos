@@ -48,7 +48,7 @@ class Model_todo{
     }
 }
 
-console.log(typeof(Model_todo.showListTugas()))
-console.log(Model_todo.showListTugas())
+// console.log(typeof(Model_todo.showListTugas()))
+// console.log(Model_todo.showListTugas())
 
 module.exports = Model_todo
