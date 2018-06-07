@@ -8,6 +8,11 @@ class Controller{
         // console.log('teeess');
         view.help()
     }
+    
+    list(){
+        var arrList = model.file
+        view.list(arrList)
+    }
 }
 
 var controller = new Controller()

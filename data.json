@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "idTask" : 1,
+        "task" : "Bikin Aplikasi"        
+    },
+    {
+        "idTask" : 2,
+        "task" : "Main Node.js"        
+    }
+]

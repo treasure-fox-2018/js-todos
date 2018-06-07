@@ -10,6 +10,14 @@ class View{
            console.log(`node todo.js ${arrCommand[i]}`);           
        }
     }
+
+    list(arrList){
+        for (let i = 0; i < arrList.length; i++) {
+            console.log(`${arrList[i].idTask}. ${arrList[i].task}`);
+            
+        }
+        
+    }
 }
 
 var view = new View()

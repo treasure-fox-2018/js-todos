@@ -9,3 +9,7 @@ var tes = process.argv
 if (command == 'help' || command == undefined) {
     controller.help()
 }
+
+if (command == 'list') {
+    controller.list()
+}
