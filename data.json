@@ -1,3 +1,1 @@
-{
-    "data": ["help", "list", "add <taskContent>", "findById <taskId>", "complete <taskId>", "uncomplete <task_Id"]
-}
+[{"id":1,"taskTitle":"Tidur","completion":true,"dateCreated":"2018-06-07T13:32:32.113Z","tags":["hobby","needs"]},{"id":3,"taskTitle":"Play","completion":true,"dateCreated":"2018-06-07T13:35:59.670Z","tags":["needs"]},{"id":4,"taskTitle":"Makan","completion":false,"dateCreated":"2018-06-07T13:44:05.573Z","tags":[]},{"id":5,"taskTitle":"Finish Hacktiv8","completion":false,"dateCreated":"2018-06-07T14:56:42.255Z","tags":[]},{"id":6,"taskTitle":"Finish Iftar","completion":false,"dateCreated":"2018-06-07T14:56:52.745Z","tags":["needs","hobby"]}]
