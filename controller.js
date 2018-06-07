@@ -28,6 +28,26 @@ class Controller{
         var arrList = model.file
         view.find(id,arrList)
     }
+
+    delete(id){
+        var arrList = model.file
+        var arr = []
+        for (let i = 0; i < arrList.length; i++) {
+            if (arrList[i].idTask != +id) {
+                arr.push(arrList[i])
+            }else
+            if (+id == arrList[i].idTask) {
+                var deleted = arrList[i].task
+            }
+        }        
+        
+        console.log(`Deleted "${deleted}" from your TODO list`);
+        // console.log(arr);
+        model.delete(arr)
+        
+        
+
+    }
 }
 
 class Task{

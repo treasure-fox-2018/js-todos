@@ -13,19 +13,27 @@ class Model{
         return this._file
     }
 
+    set file(data){
+        this._file = data
+    }
+    
     add(task){
-        this._file.push(task)
+        this.file.push(task)
         this.write()
         // console.log(this._file);
         
     }
 
     write(){
-        var newTask = JSON.stringify(this._file)
+        var newTask = JSON.stringify(this.file)
         fs.writeFileSync('data.json',newTask)
         return 'Data telah Disimpan!'
     }
 
+    delete(data){
+        this.file = data
+        this.write()
+    }
 
 }
 // console.log(display_data);

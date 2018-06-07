@@ -20,4 +20,8 @@ if (command == 'add') {
 
 if (command == 'findById') {
     controller.findById(tag)
+}else
+
+if (command == 'delete') {
+    controller.delete(tag)
 }
