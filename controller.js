@@ -1,11 +1,39 @@
 var View = require('./view.js')
-var fs = require('fs')
-var jsondata = fs.readFileSync('./data.json')
+var Model = require('./model.js')
 
 class Controller {
-  static add(name){
-    var writeData = fs.writeFileSync(name)
-    return writeData;
+  static ambilData(){
+    var data = Model.listData(data)
+    View.viewData(data)
+  }
+
+  static help(){
+    var help = View.printHelp()
+  }
+
+  static addtoDo(task){
+    var addtoDo = Model.addData(task)
+    View.show(task)
+  }
+
+  static findId(numberList){
+    var findById = Model.findById(numberList)
+    View.showID(findById)
+  }
+
+  static deleteId(numberList){
+    var deleteId = Model.deleteList(numberList)
+    View.deleteIdView(deleteId)
+  }
+
+  static completeTask(numberList){
+    var complete = Model.completeTask(numberList)
+    View.completeView(complete)
+  }
+
+  static uncompleteTask(numberList){
+    var uncomplete = Model.uncompleteTask(numberList)
+    View.uncompleteView(uncomplete)
   }
 }
 

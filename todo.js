@@ -2,17 +2,21 @@ var Controller = require('./controller.js')
 
 // set argv
 let command = process.argv[2];
+let request = process.argv[3];
 
 // create
 if (command == 'help') {
-  console.log(`node todo.js`);
-  console.log(`node todo.js help`);
-  console.log(`node todo.js list`);
-  console.log(`node todo.js add <task_content>`);
-  console.log(`node todo.js findById <task_id>`);
-  console.log(`node todo.js delete <task_id>`);
-  console.log(`node todo.js complete <task_id>`);
-  console.log(`node todo.js uncomplete <task_id>`);
+  Controller.help();
+}else if (command == 'list') {
+  Controller.ambilData();
 }else if (command == 'add') {
-  console.log(Controller.add);
+  Controller.addtoDo(request);
+}else if (command == 'findById') {
+  Controller.findId(request)
+}else if (command == 'delete') {
+  Controller.deleteId(request)
+}else if (command == 'complete') {
+  Controller.completeTask(request)
+}else if (command === 'uncomplete') {
+  Controller.uncompleteTask(request)
 }
