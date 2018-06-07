@@ -12,13 +12,17 @@ class View {
     static showDisplay(data) {
         let stats = '';
         let str = '';
+        let tag = '';
         for (let i = 0; i < data.length; i++) {
             if(data[i].status === 'complete') {
                 stats = '[x]';
             } else {
                 stats = '[ ]';
             }
-            var listdata = `${stats} ${data[i].id}. ${data[i].task} \n`
+            if (data[i].tag.length === 0) {
+                tag = ' ';
+            }
+            var listdata = `${stats} ${data[i].id}. ${data[i].task} | tag: ${data[i].tag} | created:${new Date(data[i].date)} \n`
             str += listdata;
         }
         console.log(str);
@@ -50,6 +54,13 @@ class View {
         console.log('Update: completed task');
 
     }
+
+    static showTags(tag) {
+        for (let i = 0; i < tag.length; i++) {
+            console.log(`${tag[i].id}. ${tag[i].task} : ${tag[i].tag}`);
+        }
+    }
+
 }
 
 module.exports = View;
