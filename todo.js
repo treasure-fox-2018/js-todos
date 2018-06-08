@@ -19,4 +19,6 @@ if (command == 'help') {
   Controller.completeTask(request)
 }else if (command === 'uncomplete') {
   Controller.uncompleteTask(request)
+}else if (command === 'list:created') {
+  Controller.listCreated(request)
 }

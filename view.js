@@ -33,6 +33,10 @@ class View {
   static uncompleteView(numberList){
     console.log(numberList);
   }
+
+  static listCreated(input){
+    console.log(input);
+  }
 }
 
 module.exports = View

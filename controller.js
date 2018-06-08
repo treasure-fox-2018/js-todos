@@ -35,6 +35,11 @@ class Controller {
     var uncomplete = Model.uncompleteTask(numberList)
     View.uncompleteView(uncomplete)
   }
+
+  static listCreated(input){
+    var listcreated = Model.listCreated(input)
+    View.listCreated(listcreated)
+  }
 }
 
 module.exports = Controller

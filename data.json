@@ -1,1 +1,1 @@
-[{"id":1,"status":"[   ]","task":"bikin aplikasi"},{"id":2,"status":"[   ]","task":"Main node js"},{"id":3,"status":"[   ]","task":"Shutdown my computer"},{"id":4,"status":"[   ]","task":"belajar di hacktiv"}]
+[{"id":1,"status":"[ X ]","task":"bikin aplikasi","date":"2018-06-08T04:22:04.992Z"},{"id":2,"status":"[   ]","task":"Main node js","date":"2018-06-08T04:22:19.345Z"},{"id":3,"status":"[ X ]","task":"Shutdown my computer","date":"2018-06-08T04:22:34.158Z"},{"id":4,"status":"[ X ]","task":"turn on computer","date":"2018-06-08T04:46:35.795Z"}]

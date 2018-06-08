@@ -12,7 +12,12 @@ class Model {
     var data = this.read();
     var output = ''
     for (var i = 0; i < data.length; i++) {
-      output += `${i+1}. ${data[i].task} \n`
+      if (data[i].status == 'uncomplete') {
+        data[i].status = '[   ]'
+        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+      }else {
+        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+      }
     }
     return output
   }
@@ -22,7 +27,8 @@ class Model {
     var obj = {
       id: data.length+1,
       status: 'uncomplete',
-      task: task
+      task: task,
+      date: new Date()
     }
     data.push(obj)
     fs.writeFileSync('./data.json',JSON.stringify(data))
@@ -50,25 +56,49 @@ class Model {
 
   static completeTask(numberList){
     var data = this.read()
-    // var str = ''
+    var list = this.listData()
     for (var i = 0; i < data.length; i++) {
       if (Number(numberList) === data[i].id) {
         data[i].status = '[ X ]'
         fs.writeFileSync('./data.json',JSON.stringify(data))
       }
     }
-    return data
+    return list
   }
 
   static uncompleteTask(numberList){
     var data = this.read()
+    var list = this.listData()
     for (var i = 0; i < data.length; i++) {
       if (Number(numberList) === data[i].id) {
         data[i].status = '[   ]'
         fs.writeFileSync('./data.json',JSON.stringify(data))
       }
     }
-    return data
+    return list
+  }
+
+  static listCreated(input){
+    var data = this.read(input)
+    var output = ''
+    if (input === 'dsc') {
+      data.sort(function(a,b){return new Date(b.date) - new Date(a.date)})
+        for (var i = 0; i < data.length; i++) {
+          output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+        }
+      return output
+    }else if (input === 'asc') {
+      data.sort(function(a,b){return new Date(a.date) - new Date(b.date)})
+        for (var i = 0; i < data.length; i++) {
+          output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+        }
+      return output
+    }else {
+      for (var i = 0; i < data.length; i++) {
+        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+      }
+      return output
+    }
   }
 }
 
