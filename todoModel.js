@@ -56,18 +56,38 @@ class Model{
         return taskToDelete
     }
 
-    static statusComplete(id,status){
+    static status(id,status){
         for(let i = 0; i<dataArr.length;i++){
             if(dataArr[i].id === id){
                 if(status === 'complete'){
-                    dataArr[i].status.push('X')
+                    dataArr[i].status= '[X]'
                 }else if(status === 'uncomplete'){
-                    dataArr[i].status.push(' ')
+                    dataArr[i].status= `[ ]`
                 }
             }
         }
         var dataConvert = JSON.stringify(dataArr,null,1)
         var newFile = fs.writeFileSync('./data.json',dataConvert)
+    }
+
+    static statusComplete(){
+        var statusTask = Model.status(id,'complete')
+        var dataList = Model.readData()
+        var list = []
+        for(let i = 0; i<dataList.length; i++){
+            list.push(`${dataList[i].id}. ${dataList[i].status} ${dataList[i].task}`)
+        }
+        return list.join('\n')
+    }
+
+    static statusUncomplete(){
+        var statusTask = Model.status(id,'uncomplete')
+        var dataList = Model.readData()
+        var list = []
+        for(let i = 0; i<dataList.length; i++){
+            list.push(`${dataList[i].id}. ${dataList[i].status} ${dataList[i].task}`)
+        }
+        return list.join('\n')
     }
 }
 

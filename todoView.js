@@ -36,6 +36,11 @@ class View{
     console.log(`Deleted ${task} from your TODO list..`)
 }
 
+static viewStatus(task){
+    console.log(task)
+}
+
+
 
 
 

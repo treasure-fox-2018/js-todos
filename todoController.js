@@ -31,15 +31,35 @@ class Controller{
         View.viewDelete(deleteTask)
     }
 
-    static statusComplete(id){
-        var statusTask = Model.statusComplete(id,'complete')
+    // static statusComplete(id,completeTask){
+    //     var completeTask = Model.statusComplete(id)
+    //     View.viewStatus(completeTask)
+    // }
+
+    // static statusUncomplete(id,uncompleteTask){
+    //     var uncompleteTask = Model.statusUncomplete(id)
+    //     View.viewStatus(uncompleteTask)
+    // }
+
+    static statusComplete(id,completeTask){
+        var statusTask = Model.status(id,'complete')
         var dataList = Model.readData()
         var list = []
         for(let i = 0; i<dataList.length; i++){
             list.push(`${dataList[i].id}. ${dataList[i].status} ${dataList[i].task}`)
         }
+        View.viewStatus(list.join('\n'))
     }
 
+    static statusUncomplete(id,uncompleteTask){
+        var statusTask = Model.status(id,'uncomplete')
+        var dataList = Model.readData()
+        var list = []
+        for(let i = 0; i<dataList.length; i++){
+            list.push(`${dataList[i].id}. ${dataList[i].status} ${dataList[i].task}`)
+        }
+        View.viewStatus(list.join('\n'))
+    }
 }
 
 // console.log(Controller.FindById())

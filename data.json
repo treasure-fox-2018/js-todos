@@ -1,17 +1,17 @@
 [
  {
   "id": 1,
-  "status": [],
+  "status": "[X]",
   "task": "Bikin aplikasi"
  },
  {
   "id": 2,
-  "status": [],
+  "status": "[X]",
   "task": "Main node js"
  },
  {
   "id": 3,
-  "status": [],
+  "status": "[ ]",
   "task": "makan",
   "date": "2018-06-07T14:30:36.094Z",
   "tag": []
