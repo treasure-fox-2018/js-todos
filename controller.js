@@ -12,6 +12,15 @@ class Controller {
     View.printAllTask(allTask)
   }
 
+  static showCompleted() {
+    let completedTask = Model.completedList()
+    View.printAllTask(completedTask)
+  }
+
+  static showCompleteWrite(newTask) {
+    View.printAllTaskWrite(newTask)
+  }
+
   static addTask(newTask, newStatus) {
     Model.writeTask(newTask, newStatus)
   }
@@ -28,8 +37,39 @@ class Controller {
     Model.completeTask(targetId)
   }
 
+  static showCompleteTask(targetId) {
+    let completedTask = Model.taskList()
+    View.printCompleteTask(completedTask)
+  }
+
   static uncompleteTask(targetId) {
     Model.uncompleteTask(targetId)
+  }
+
+  static showUncompleteTask(targetId) {
+    let uncompletedTask = Model.taskList()
+    View.printUncompleteTask(uncompletedTask)
+  }
+
+  static sortDate(sort) {
+    Model.sortDate(sort)
+  }
+
+  static showSortDate(sort) {
+    let sortDate = Model.taskList()
+    View.printSortDate(sortDate)
+  }
+
+  static completedList() {
+    Model.completedList()
+  }
+
+  static tagSystem(targetId, tagName) {
+    Model.tagSystem(targetId, tagName)
+  }
+
+  static filteredList(filter) {
+    Model.filteredList(filter)
   }
 }
 
