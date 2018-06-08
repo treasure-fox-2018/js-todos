@@ -26,7 +26,7 @@ class Model {
         let setId = {
             id: num,
             status: 'incomplete',
-            created_date: new Date(),
+            created_taskDate: new Date(),
             created_complete: 0,
             tag: [],
             task: variable
@@ -86,7 +86,6 @@ class Model {
                     obj.created_taskDate = new Date()
                 }
             }
-
         }
         if (status === false) {
             throw 'Id yang di input tidak ada dalam list'
@@ -123,10 +122,10 @@ class Model {
 
         let datalist = data.readFileSync('data.json', 'utf8')
         let arrData = JSON.parse(datalist)
-        if (command === 'asc') {
+        if (command == 'asc') {
             arrData.sort()
         }
-        else if (command === 'desc') {
+        else if (command == 'desc') {
             arrData.sort().reverse()
         }
         else {
@@ -149,6 +148,7 @@ class Model {
                 i--
             }
         }
+
         if (command = 'asc') {
 
             for (let i = 0; i < arrData.length; i++) {
@@ -167,7 +167,7 @@ class Model {
             for (let i = 0; i < arrData.length; i++) {
                 for (let j = i + 1; j < arrData.length; j++) {
 
-                    if (arrData[i].created_taskDate.toString() > arrData[j].created_taskDate.toString()) {
+                    if (arrData[i].created_taskDate.toString() < arrData[j].created_taskDate.toString()) {
                         let arr = arrData[i]
                         arrData[i] = arrData[j]
                         arrData[j] = arr
