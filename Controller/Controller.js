@@ -43,9 +43,9 @@ class Controller {
       }
     }
   }
-  static controlAdd(newTask) {
-    let addList = Model.add(newTask)
-    View.viewAdd(newTask)
+  static controlAdd(newTask, tag) {
+    let addList = Model.add(newTask, tag)
+    View.viewAdd(newTask, tag)
   }
   static controlFindById(id) {
     let findId = id
@@ -60,6 +60,38 @@ class Controller {
     let deleteId = id
     Model.deleteList(id)
     View.deleteById()
+  }
+  static controlListCreated() {
+    let sortData = Model.listCreated()
+    View.listCreated(sortData) // default ascending
+  }
+  static controlListAsc() {
+    let sortDataAsc = Model.listAsc()
+    View.listAsc(sortDataAsc) // ascending
+  }
+  static controlListDesc() {
+    let sortDataDesc = Model.listDesc()
+    View.listDesc(sortDataDesc)
+  }
+  static controlListCompleted() {
+    let sortByCompletedTask = Model.listCompleted()
+    View.listCompleted(sortByCompletedTask)
+  }
+  static controlTag(id, tagName) {
+    let list = Model.list()
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].id === id || list[i].tag === tagName) {
+        View.viewtag(list[i])
+      }
+    }
+  }
+  static controlFilter(fillter, tagName) {
+    let list = Model.list()
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].tag === tagName) {
+        View.viewFilter(list[i])
+      }
+    }
   }
 }
 

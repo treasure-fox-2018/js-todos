@@ -11,6 +11,10 @@ class View {
     console.log('$ node todo.js delete <task_id>')
     console.log('$ node todo.js complete <task_id>')
     console.log('$ node todo.js uncomplete <task_id>')
+    console.log('$ node todo.js list:created asc|desc')
+    console.log('$ node todo.js list:complete asc|desc');
+    console.log('$ node todo.js tag <task_id> <tag_name_1> <tag_name_2> <tag_name_N>')
+    console.log('$ node todo.js filter: <tag_name>');
   }
   static viewList(list) {
     // console.log(list) // this not displaying
@@ -26,6 +30,32 @@ class View {
   }
   static deleteById() {
     console.log(`Your list are deleted in your TODO list. . .`)
+  }
+  static listCreated(sortData) {
+    for (let i = 0; i < sortData.length; i++) {
+      console.log(`${sortData[i].id} : [${sortData[i].mark}] ${sortData[i].task} `)
+    }
+  }
+  static listAsc(sortData) {
+    for (let i = 0; i < sortData.length; i++) {
+      console.log(`${sortData[i].id} : [${sortData[i].mark}] ${sortData[i].task} `)
+    }
+  }
+  static listDesc(sortData) {
+    for (let i = 0; i < sortData.length; i++) {
+      console.log(`${sortData[i].id} : [${sortData[i].mark}] ${sortData[i].task} `)
+    }
+  }
+  static listCompleted(listComp) {
+    for (let i = 0; i < listComp.length; i++) {
+      console.log(`${listComp[i].id} : [${listComp[i].mark}] ${listComp[i].task} `)
+    }
+  }
+  static viewtag(list) {
+    console.log(`Tagged Task "${list.task}" with tags: ${list.tag}`);
+  }
+  static viewFilter(list) {
+    console.log(`${list.id} : ${list.task} [${list.tag}]`);
   }
 }
 // console.log(View.viewHelp())
