@@ -42,13 +42,13 @@ class Controller {
 
     static sortTask_c(command) {
         let sorted = Model.SortcreatedDate_m(command)
-        View.SortedDate_v(sort)
+        View.SortedDate_v(sorted)
 
     }
 
     static sortCompletedTask_c(command) {
         let sorted = Model.SortcompleteDate_m(command)
-        View.SortedDate_v(sort)
+        View.SortedDate_v(sorted)
 
     }
 
@@ -68,3 +68,4 @@ class Controller {
 }
 
 module.exports = Controller
+
