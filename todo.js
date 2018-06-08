@@ -31,13 +31,13 @@ else if(command === 'delete'){
 else if(command === 'complete'){
     Controller.completedTask_c(variable)
 }
-else if(command === 'uncomplete'){
+else if(command === 'incomplete'){
     Controller.incompletedTask_c(variable)
 }
 else if(command === 'list:created'){
     Controller.sortTask_c(variable)
 }
-else if(command === 'list:complete'){
+else if(command === 'list:completed'){
     Controller.sortCompletedTask_c(variable)
 }
 else if(command === 'tag'){
