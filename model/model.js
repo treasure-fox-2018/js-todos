@@ -68,6 +68,9 @@ class Model {
     let dataList = Model.read();
     for (let i = 0 ; i < dataList.length ; i++) {
       if (dataList[i].id === id) {
+        if (key === "tag") {
+          value = dataList[i].tag.concat(value);
+        }
         dataList[i][key] = value;
         let newDataList=JSON.stringify(dataList);
         let dataJSON=fs.writeFileSync('./data.json', newDataList);
@@ -91,6 +94,49 @@ class Model {
     }
     if (isFound === true) {
       return filterData
+    }
+    return false;
+  }
+
+  static sorting (key,direction = "asc", filter = "") { //default sort is ascending
+    //I think sort classified in controller because not part of CRUD
+    console.log(key)
+    let dataList = Model.read();
+    if (filter === "") {
+      if (direction === "asc") {
+        dataList.sort(function(a, b){return new Date (a[key]) - new Date(b[key])});
+      } else if (direction === "desc") {
+        dataList.sort(function(a, b){return new Date(b[key]) - new Date (a[key])});
+      }
+        return (dataList);
+    } else if (filter === "completed") {
+      let listCompleteData = [];
+      //find data base filter key
+      for (let i = 0 ; i < dataList.length ; i++) {
+        if (dataList[i].status === "complete") {
+          listCompleteData.push(dataList[i])
+        }
+      }
+      if (direction === "asc") {
+        listCompleteData.sort(function(a, b){return new Date (a[key]) - new Date(b[key])});
+      } else if (direction === "desc") {
+        listCompleteData.sort(function(a, b){return new Date(b[key]) - new Date (a[key])});
+      }
+        return (listCompleteData);
+    } else if (filter === "uncompleted") {
+      let listCompleteData = [];
+      //find data base filter key
+      for (let i = 0 ; i < dataList.length ; i++) {
+        if (dataList[i].status === "uncomplete") {
+          listCompleteData.push(dataList[i])
+        }
+      }
+      if (direction === "asc") {
+        listCompleteData.sort(function(a, b){return new Date (a[key]) - new Date(b[key])});
+      } else if (direction === "desc") {
+        listCompleteData.sort(function(a, b){return new Date(b[key]) - new Date (a[key])});
+      }
+        return (listCompleteData);
     }
     return false;
   }
