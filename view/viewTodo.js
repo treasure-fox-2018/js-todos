@@ -1,21 +1,18 @@
 const fs = require("fs");
-const ModelTodo = require("../model/modelTodo");
 
 class ViewTodo {
-  static help() {
-    let helpList = ModelTodo.help();
-    for (let i = 1; i < helpList.length; i++) {
-      console.log(`${i}. ${helpList[i]}`);
+  static help(listmenu) {
+    for (let i = 1; i < listmenu.length; i++) {
+      console.log(`${i}. ${listmenu[i]}`);
     }
   }
 
-  static list() {
-    let listContent = ModelTodo.list();
+  static list(todoList) {
     console.log("My TODO List : ");
-    for (let i = 0; i < listContent.length; i++) {
+    for (let i = 0; i < todoList.length; i++) {
       console.log(
-        `${listContent[i].id}. [${listContent[i].complete_task}] ${
-          listContent[i].task_content
+        `${todoList[i].id}. [${todoList[i].complete_task}] ${
+          todoList[i].task_content
         }`
       );
     }
@@ -23,61 +20,49 @@ class ViewTodo {
   }
 
   static add(task_content) {
-    console.log(`Added ${task_content} to your TODO list. `);
+    console.log(`Todo list add successfull`);
   }
 
-  static findById(id) {
-    let findContent = ModelTodo.findById(id);
+  static findById(task_id) {
+    let findId = task_id;
+    for (let i = 0; i < findId.length; i++) {
+      console.log(`${findId[i].id}. ${findId[i].task_content}`)
+    }
+  }
 
-    for (let i = 0; i < findContent.length; i++) {
-      if (findContent[i].id === id) {
-        console.log(`${findContent[i].id}. ${findContent[i].task_content}`);
+  static uncomplete () {
+    console.log('Uncomplete successfull')
+  }
+
+  static delete(delId) {
+    console.log('Deleted successfull')
+  }
+
+  static listCreated (list_Created) {
+    let createdList = list_Created
+
+    for (let i = 0; i < createdList.length; i++) {
+      console.log(createdList[i])
+    }
+  }
+
+  static listCompleted (list_completed) {
+    for (let i = 0; i < list_completed.length; i++) {
+      if (list_completed[i].complete_task[0] === "X") {
+        console.log(list_completed[i].task_content)
       }
     }
   }
 
-  static delete(id) {
-    let deleteContent = ModelTodo.delete(id);
-
-    for (let i = 0; i < deleteContent.length; i++) {
-      if (deleteContent[i].id === id) {
-        console.log(
-          `Deleted ${deleteContent[i].task_content} from your TODO list`
-        );
-        delete deleteContent[i].id;
-        delete deleteContent[i].task_content;
-      }
-    }
-
-    fs.writeFileSync("./data.json", JSON.stringify(deleteContent));
-    return true;
+  static tagList (taskContent, nameTag) {
+    console.log(`Tagged task ${taskContent} with by tags: ${nameTag}`)
   }
 
-  static complete(id) {
-    let completeContent = ModelTodo.complete();
-
-    for (let i = 0; i < completeContent.length; i++) {
-      if (completeContent[i].id === id) {
-        completeContent[i].complete_task.push("X");
-      }
+  static filterByTag (filter_tag) {
+    let filterTag = filter_tag
+    for (let i = 0; i < filterTag.length; i++) {
+      console.log(`${filterTag[i].id}. ${filterTag[i].task_content} [${filterTag[i].tag}]`)
     }
-
-    fs.writeFileSync("./data.json", JSON.stringify(completeContent));
-    return true;
-  }
-
-  static uncomplete(id) {
-    let uncompleteContent = ModelTodo.uncomplete()
-    
-    for (let i = 0; i < uncompleteContent.length; i++) {
-      if (uncompleteContent[i].id === id) {
-        uncompleteContent[i].complete_task.shift(1)
-      }
-    }
-
-    fs.writeFileSync("./data.json", JSON.stringify(uncompleteContent));
-    return true;
   }
 }
-
 module.exports = ViewTodo;
