@@ -9,13 +9,15 @@ class Controller_todo{
     }
 
     static addTask(toAdd){
+        var list = this.showListTugas()
         var taskToAdd = Model.addTask(toAdd)
-        View.showListTugas(listTugas)
+        View.showListTugas(list)
     }
     
     static showListTugas(){
         var listTugas = Model.showListTugas()
-        View.showListTugas(listTugas)
+        var list = View.showListTugas(listTugas)
+        return list
     }
     
     static findById(byId){
@@ -45,7 +47,17 @@ class Controller_todo{
         var notYet = Model.uncompleteTask(num)
         this.showUpdateList()
     }
+
+    static createdASC(){
+        var sorted = Model.createdASC()
+        View.showReq(sorted)
+    }
+
+    static createdDSC(){
+        var sorted = Model.createdDSC()
+        View.showReq(sorted)
+    }
 }
 
-
+// Controller_todo.createdDSC()
 module.exports = Controller_todo

@@ -18,8 +18,13 @@ class View_todo{
     static showUpdateList(updateList){
         console.log(updateList);
     }
+
+    static showReq(toDisplay){
+        console.log(toDisplay);
+    }
 }
 
+// View_todo.showReq()
 module.exports = View_todo
 
 // console.log(View_todo.showId(1));

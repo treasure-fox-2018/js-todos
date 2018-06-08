@@ -13,10 +13,16 @@ if(argv[2] === undefined){
     controller.findById(argv[3])
 }else if(argv[2] === 'delete'){
     controller.delete(argv[3])
+}else if(argv[2] === 'list:created' && argv[3] === 'asc'){
+    controller.createdASC()
+}else if(argv[2] === 'list:created' && argv[3] === 'desc'){
+    controller.createdDSC()
 }else if(argv[2] === 'list'){
     controller.showUpdateList()
 }else if(argv[2] === 'complete'){
     controller.completeTask(argv[3])
 }else if(argv[2] === 'uncomplete'){
     controller.uncompleteTask(argv[3])
+}else if(argv[2] === ''){
+
 }
