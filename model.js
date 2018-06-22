@@ -61,6 +61,7 @@ class Model {
       if (Number(numberList) === data[i].id) {
         data[i].status = '[ X ]'
         fs.writeFileSync('./data.json',JSON.stringify(data))
+        // status pake true false
       }
     }
     return list
@@ -83,15 +84,15 @@ class Model {
     var output = ''
     if (input === 'dsc') {
       data.sort(function(a,b){return new Date(b.date) - new Date(a.date)})
-        for (var i = 0; i < data.length; i++) {
-          output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
-        }
+      for (var i = 0; i < data.length; i++) {
+        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+      }
       return output
     }else if (input === 'asc') {
       data.sort(function(a,b){return new Date(a.date) - new Date(b.date)})
-        for (var i = 0; i < data.length; i++) {
-          output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
-        }
+      for (var i = 0; i < data.length; i++) {
+        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+      }
       return output
     }else {
       for (var i = 0; i < data.length; i++) {
