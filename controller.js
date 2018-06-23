@@ -1,45 +1,59 @@
-var View = require('./view.js')
-var Model = require('./model.js')
+const Model = require('./model.js');
+const View = require('./view.js');
 
 class Controller {
-  static ambilData(){
-    var data = Model.listData(data)
-    View.viewData(data)
-  }
-
   static help(){
-    var help = View.printHelp()
+    View.showHelp()
   }
 
-  static addtoDo(task){
-    var addtoDo = Model.addData(task)
-    View.show(task)
+  static list(){
+    let list = Model.listData()
+    View.showList(list)
   }
 
-  static findId(numberList){
-    var findById = Model.findById(numberList)
-    View.showID(findById)
+  static add(task){
+    let add = Model.addData(task)
+    View.showAdd(add);
   }
 
-  static deleteId(numberList){
-    var deleteId = Model.deleteList(numberList)
-    View.deleteIdView(deleteId)
+  static findId(id){
+    let find = Model.findById(id)
+    View.showFind(find);
   }
 
-  static completeTask(numberList){
-    var complete = Model.completeTask(numberList)
-    View.completeView(complete)
+  static deleteList(id){
+    let list = Model.deleteData(id)
+    View.showDeleted(list)
   }
 
-  static uncompleteTask(numberList){
-    var uncomplete = Model.uncompleteTask(numberList)
-    View.uncompleteView(uncomplete)
+  static completeData(id){
+    let complete = Model.completeData(id)
+    View.showCompleted(complete)
   }
 
-  static listCreated(input){
-    var listcreated = Model.listCreated(input)
-    View.listCreated(listcreated)
+  static uncompleteData(id){
+    let uncomplete = Model.uncompleteData(id)
+    View.showUncompleted(uncomplete)
+  }
+
+  static listCreated(request){
+    let sorting = Model.listCreated(request)
+    View.showListCreated(sorting)
+  }
+
+  static listCompleted(request){
+    let listcomplete = Model.listCompleted(request)
+    View.showListCompleted(listcomplete)
+  }
+
+  static addTag(id,input){
+    let tag = Model.addTag(id,input)
+    View.showTag(tag)
+  }
+
+  static filterHobby(){
+    let filter = Model.filter()
+    View.showFilter(filter)
   }
 }
-
-module.exports = Controller
+module.exports = Controller;

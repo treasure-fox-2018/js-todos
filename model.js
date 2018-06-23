@@ -1,105 +1,148 @@
-var fs = require('fs')
+const fs = require('fs');
 
 class Model {
-
-  static read () {
-    var jsondata = fs.readFileSync('./data.json')
-    var data = JSON.parse(jsondata)
-    return data
+  static readData(){
+    let jsondata = fs.readFileSync('./data.json');
+    let data = JSON.parse(jsondata);
+    return data;
   }
 
   static listData(){
-    var data = this.read();
-    var output = ''
+    let data = this.readData();
+    let output = '';
     for (var i = 0; i < data.length; i++) {
-      if (data[i].status == 'uncomplete') {
-        data[i].status = '[   ]'
-        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
-      }else {
-        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
-      }
+      output += `${data[i].id}. ${data[i].task} \n`
     }
-    return output
+    return output;
   }
 
   static addData(task){
-    var data = this.read()
-    var obj = {
+    let data = this.readData();
+    let obj = {
       id: data.length+1,
-      status: 'uncomplete',
+      status: '[ ]',
       task: task,
-      date: new Date()
+      date: new Date(),
+      tag: []
     }
-    data.push(obj)
-    fs.writeFileSync('./data.json',JSON.stringify(data))
+    data.push(obj);
+    fs.writeFileSync('./data.json',JSON.stringify(data));
+    return `Added "${task}" to your TODO list...`
   }
 
-  static findById(numberList){
-    var data = this.read()
+  static findById(id){
+    let data = this.readData()
     for (var i = 0; i < data.length; i++) {
-      if (Number(numberList) === data[i].id) {
+      if (id == data[i].id) {
         return `${data[i].id}. ${data[i].task}`
       }
     }
   }
 
-  static deleteList(numberList){
-    var data = this.read()
+  static deleteData(id){
+    let data = this.readData()
+    let task = ''
     for (var i = 0; i < data.length; i++) {
-      if (Number(numberList) === data[i].id) {
+      if (id == data[i].id) {
+        task += data[i].task
         data.splice(i,1);
         fs.writeFileSync('./data.json',JSON.stringify(data))
-        return `Deleted ${data[i].task} from your TODO list...`
+        return `Deleted "${task}" from your TODO list...`
       }
     }
   }
 
-  static completeTask(numberList){
-    var data = this.read()
-    var list = this.listData()
+  static completeData(id){
+    let data = this.readData()
+    let output = ''
     for (var i = 0; i < data.length; i++) {
-      if (Number(numberList) === data[i].id) {
-        data[i].status = '[ X ]'
-        fs.writeFileSync('./data.json',JSON.stringify(data))
-        // status pake true false
-      }
-    }
-    return list
-  }
-
-  static uncompleteTask(numberList){
-    var data = this.read()
-    var list = this.listData()
-    for (var i = 0; i < data.length; i++) {
-      if (Number(numberList) === data[i].id) {
-        data[i].status = '[   ]'
+      if (id == data[i].id) {
+        data[i].status = '[x]'
         fs.writeFileSync('./data.json',JSON.stringify(data))
       }
     }
-    return list
+
+    for (var i = 0; i < data.length; i++) {
+      output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+    }
+    return output
   }
 
-  static listCreated(input){
-    var data = this.read(input)
-    var output = ''
-    if (input === 'dsc') {
-      data.sort(function(a,b){return new Date(b.date) - new Date(a.date)})
-      for (var i = 0; i < data.length; i++) {
-        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+  static uncompleteData(id){
+    let data = this.readData()
+    let output = ''
+    for (var i = 0; i < data.length; i++) {
+      if (id == data[i].id) {
+        data[i].status = '[ ]'
+        fs.writeFileSync('./data.json',JSON.stringify(data))
       }
-      return output
-    }else if (input === 'asc') {
+    }
+
+    for (var i = 0; i < data.length; i++) {
+      output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+    }
+    return output
+  }
+
+  static listCreated(request){
+    let data = this.readData()
+    let output = ''
+    if (request == 'asc') {
       data.sort(function(a,b){return new Date(a.date) - new Date(b.date)})
       for (var i = 0; i < data.length; i++) {
-        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+        output += `${data[i].id}.${data[i].task} \n`
       }
-      return output
-    }else {
+    }else if (request == 'desc') {
+      data.sort(function(a,b){return new Date(b.date) - new Date(a.date)})
       for (var i = 0; i < data.length; i++) {
-        output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+        output += `${data[i].id}. ${data[i].task} \n`
       }
-      return output
     }
+    return output;
+  }
+
+  static listCompleted(request){
+    let data = this.readData()
+    let output = ''
+
+    if (request == 'asc') {
+      data.sort(function(a,b){return new Date(a.date) - new Date(b.date)})
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].status == '[x]') {
+          output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+        }
+      }
+    }else if (request == 'desc') {
+      data.sort(function(a,b){return new Date(b.date) - new Date(a.date)})
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].status == '[x]') {
+          output += `${data[i].id}. ${data[i].status} ${data[i].task} \n`
+        }
+      }
+    }
+    return output;
+  }
+
+  static addTag(id,input){
+    let data = this.readData()
+    for (var i = 0; i < data.length; i++) {
+      if (id == data[i].id) {
+        data[i].tag.push(input)
+        fs.writeFileSync('./data.json',JSON.stringify(data))
+        return `Tagged task "${data[i].task}" with tags: ${input}`
+      }
+    }
+  }
+
+  static filter(){
+    let data = this.readData()
+    let output = ''
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].tag.length !== 0) {
+        output += `${data[i].id}. ${data[i].task} [${data[i].tag}]\n`
+      }
+    }
+    return output;
   }
 }
 
