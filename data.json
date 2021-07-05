@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "id": 1,
+        "task": "placeHolder"
+    },
+    {
+        "id": 2,
+        "status": "incomplete",
+        "created_taskDate": "2018-06-08T04:29:38.276Z",
+        "created_complete": 0,
+        "tag": [],
+        "task": ". sleep"
+    },
+    {
+        "id": 3,
+        "status": "incomplete",
+        "created_taskDate": "2018-06-08T04:30:08.451Z",
+        "created_complete": 0,
+        "tag": [],
+        "task": ". pergi ke kantor"
+    },
+    {
+        "id": 4,
+        "status": "incomplete",
+        "created_taskDate": "2018-06-08T04:30:26.179Z",
+        "created_complete": 0,
+        "tag": [],
+        "task": ". makan malam"
+    }
+]
