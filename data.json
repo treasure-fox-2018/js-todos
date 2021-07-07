@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": 1,
+    "task_content": "tugas belum selesai",
+    "complete_task": ["X"],
+    "date": "2018-6-7",
+    "tag": ["ngantuk"]
+  },
+  {
+    "id": 2,
+    "task_content": "salah di controller",
+    "complete_task": [],
+    "date": "2018-6-10",
+    "tag": ["tugas"]
+  }
+]
